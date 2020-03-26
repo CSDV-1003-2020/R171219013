@@ -51,5 +51,58 @@ int main()
     }
     return 0;
 }
+
+
 int searchint(int x)
+{
+int count=0;
+node *searchele=top;
+while( searchele!=NULL)
+{
+    if(compare_fn(x,searchele->data)==compare_no)
+    {
+        searchele=searchele->next;
+    count+=1;
+    }
+    else
+        break;
+}
+return count;
+}
+
+int insertdata(int x)
+{
+    if(top==NULL)
+    {
+        top=new node;
+        top->data=x;
+        top->next=NULL;
+	top->prev=NULL;
+    }
+    else if(compare_fn(top->data ,x)==compare_no)
+    {
+        node *n=new node;
+        n->data=x;
+        n->next=top;
+        n->prev=NULL;
+        top->prev=n;
+        top=n;
+    }
+    else
+    {
+    int c=searchint(x);
+    node *insertele=top;
+    for(int i=0;i<c-1;i++)
+        insertele=insertele->next;
+    node *n=new node;
+    n->data=x;
+    node *b=insertele->next;
+    node *N =insertele;
+    n->prev=insertele;
+    n->next=b;
+    insertele->next=n;
+    if(b!=NULL)
+        b->prev=n;
+    }
+}
 void display()
