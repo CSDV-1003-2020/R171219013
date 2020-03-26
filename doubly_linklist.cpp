@@ -106,3 +106,80 @@ int insertdata(int x)
     }
 }
 void display()
+{
+cout<<"Element In The Linked List Are : ";
+node *disp=top;
+while(disp!=NULL)
+{
+    cout<<" "<<disp->data;
+    if(disp->next==NULL)
+    {
+        break;
+    }
+    disp=disp->next;
+}
+}
+void deleteint(int x)
+{
+    node *del=top;
+    if(del->data == x)
+    {
+        if(del->next==NULL && del->prev==NULL)
+        {
+            top=NULL;
+            return;
+        }
+        del->next->prev=NULL;
+        top=del->next;
+    }
+    else
+    {
+        node *delsuc=del->next;
+        if(del==NULL)
+        {
+            cout<<"\nElement Not Found\n";
+            return;
+        }
+            if(delsuc==NULL)
+        {
+            cout<<"\nElement Not Found\n";
+            return;
+        }
+        while(delsuc->data != x)
+        {
+            del=del->next;
+            delsuc=delsuc->next;
+            if(del==NULL)
+        {
+            cout<<"\nElement Not Found\n";
+            return;
+        }
+            if(delsuc==NULL)
+        {
+            cout<<"\nElement Not Found\n";
+            return;
+        }
+        }
+        del->next=delsuc->next;
+        if(delsuc->next!=NULL)
+        delsuc->next->prev=del;
+    }
+}
+void reversel()
+{
+node *a=top;
+node *b,*c,*d;
+while(a!=NULL)
+{
+    d=a;
+    c=a->next;
+    b=a->prev;
+    a->prev=a->next;
+    a->next=b;
+    a=c;
+}
+top=d;
+cout<<"After Reversing the linked list";
+display();
+compare_no*=-1;
+}
