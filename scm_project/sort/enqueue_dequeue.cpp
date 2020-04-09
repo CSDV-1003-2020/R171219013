@@ -40,5 +40,5 @@ void queue:: enqueue()
             }
         }
     }
-void queue:: dequeue()
+
 int main()//int main programme
