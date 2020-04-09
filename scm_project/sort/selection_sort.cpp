@@ -24,5 +24,22 @@ void selectionSort(int arr[], int n)
         swap(&arr[min_idx], &arr[i]);  
     }  
 }  
-  void printArray(int arr[], int size) 
-int main()//int main function
+  void printArray(int arr[], int size)  
+{  
+    int i;  
+    for (i=0; i < size; i++)  
+        cout << arr[i] << " ";  
+    cout << endl;  
+}  
+  
+// Driver program to test above functions  
+int main()  
+{  
+    int arr[] = {64, 25, 12, 22, 11};  
+    int n = sizeof(arr)/sizeof(arr[0]);  
+    selectionSort(arr, n);  
+    cout << "Sorted array: \n";  
+    printArray(arr, n);  
+    return 0;  
+}    
+
