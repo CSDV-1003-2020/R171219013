@@ -60,7 +60,7 @@ void queue:: dequeue()
     }
 =======
 >>>>>>> eff82a4ca325f69bdc8504201959611701a69900
-void queue:: menu()
+void queue:: menu()//menu fun display
 {
         cout<<"Enter 1 for adding element in queue:"<<endl;
         cout<<"Enter 2 for deleting element from queue:"<<endl;
@@ -79,3 +79,11 @@ void queue:: menu()
             }
         }
     }
+int main()//main fun of the programme
+{
+    int capacity; //variable to store capacity
+    cout<<"Enter capacity of queue:"<<endl;
+    cin>>capacity;
+    queue q(capacity);
+    q.menu();
+}
