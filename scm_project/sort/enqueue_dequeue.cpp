@@ -41,4 +41,23 @@ void queue:: enqueue()
         }
     }
 
+<<<<<<< HEAD
+void queue:: dequeue()
+    {
+        if(isemp())
+        {
+            cout<<"Queue is empty"<<endl;
+        }
+        else
+        {
+            cout<<"Data is: "<<arr[fron]<<endl;
+            fron++;
+            if(rear+1==fron)
+            {
+                rear=fron=-1;
+            }
+        }
+    }
+=======
+>>>>>>> eff82a4ca325f69bdc8504201959611701a69900
 int main()//int main programme
