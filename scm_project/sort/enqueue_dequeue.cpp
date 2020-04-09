@@ -41,6 +41,7 @@ void queue:: enqueue()
         }
     }
 
+<<<<<<< HEAD
 void queue:: dequeue()
     {
         if(isemp())
@@ -57,4 +58,6 @@ void queue:: dequeue()
             }
         }
     }
+=======
+>>>>>>> eff82a4ca325f69bdc8504201959611701a69900
 int main()//int main programme
