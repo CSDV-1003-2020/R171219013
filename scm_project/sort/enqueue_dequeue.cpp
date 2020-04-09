@@ -60,4 +60,22 @@ void queue:: dequeue()
     }
 =======
 >>>>>>> eff82a4ca325f69bdc8504201959611701a69900
-int main()//int main programme
+void queue:: menu()
+{
+        cout<<"Enter 1 for adding element in queue:"<<endl;
+        cout<<"Enter 2 for deleting element from queue:"<<endl;
+        while(1)
+        {
+            cout<<"Enter your choice:"<<endl;
+            cin>>choice;
+            switch(choice)
+            {
+            case 1:
+                enqueue();
+                break;
+            case 2:
+                dequeue();
+                break;
+            }
+        }
+    }
