@@ -29,3 +29,14 @@ class avl_tree {
          r = NULL;
       }
 };
+int avl_tree::height(avl *t) {
+   int h = 0;
+   if (t != NULL) {
+      int l_height = height(t->l);
+      int r_height = height(t->r);
+      int max_height = max(l_height, r_height);
+      h = max_height + 1;
+   }
+   return h;
+}
+
