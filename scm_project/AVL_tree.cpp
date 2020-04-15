@@ -118,3 +118,14 @@ void avl_tree::show(avl *p, int l) {
          show(p->l, l + 1);
    }
 }
+
+  void avl_tree::inorder(avl *t) {
+   if (t == NULL)
+      return;
+      inorder(t->l);
+      cout << t->d << " ";
+      inorder(t->r);
+}
+   
+       
+   
