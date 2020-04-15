@@ -11,3 +11,21 @@ struct avl {
    struct avl *l;
    struct avl *r;
 }*r;
+class avl_tree {
+   public:
+      int height(avl *);
+      int difference(avl *);
+      avl *rr_rotat(avl *);
+      avl *ll_rotat(avl *);
+      avl *lr_rotat(avl*);
+      avl *rl_rotat(avl *);
+      avl * balance(avl *);
+      avl * insert(avl*, int);
+      void show(avl*, int);
+      void inorder(avl *);
+      void preorder(avl *);
+      void postorder(avl*);
+      avl_tree() {
+         r = NULL;
+      }
+};
