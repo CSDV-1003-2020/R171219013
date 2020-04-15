@@ -105,3 +105,16 @@ avl *avl_tree::insert(avl *r, int v) {
       r = balance(r);
    } return r;
 }
+void avl_tree::show(avl *p, int l) {
+   int i;
+   if (p != NULL) {
+      show(p->r, l+ 1);
+      cout<<" ";
+      if (p == r)
+         cout << "Root -> ";
+      for (i = 0; i < l&& p != r; i++)
+         cout << " ";
+         cout << p->d;
+         show(p->l, l + 1);
+   }
+}
