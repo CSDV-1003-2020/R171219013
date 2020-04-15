@@ -140,5 +140,53 @@ void avl_tree::postorder(avl *t) {
       postorder(t ->r);
       cout << t->d << " ";
 }
+int main() {
+   int c, i;
+   avl_tree avl;
+   while (1) {
+      cout << "1.Insert Element into the tree" << endl;
+      cout << "2.show Balanced AVL Tree" << endl;
+      cout << "3.InOrder traversal" << endl;
+      cout << "4.PreOrder traversal" << endl;
+      cout << "5.PostOrder traversal" << endl;
+      cout << "6.Exit" << endl;
+      cout << "Enter your Choice: ";
+      cin >> c;
+      switch (c) {
+         case 1:
+            cout << "Enter value to be inserted: ";
+            cin >> i;
+            r = avl.insert(r, i);
+         break;
+         case 2:
+            if (r == NULL) {
+               cout << "Tree is Empty" << endl;
+               continue;
+            }
+            cout << "Balanced AVL Tree:" << endl;
+            avl.show(r, 1);
+            cout<<endl;
+         break;
+         case 3:
+            cout << "Inorder Traversal:" << endl;
+            avl.inorder(r);
+            cout << endl;
+         break;
+         case 4:
+            cout << "Preorder Traversal:" << endl;
+            avl.preorder(r);
+            cout << endl;
+         break;
+         case 5:
+            cout << "Postorder Traversal:" << endl;
+            avl.postorder(r);
+            cout << endl;
+         break;
+         case 6:
+            exit(1);
+         break;
+         default:
+            cout << "Wrong Choice" << endl;
+      }
        
    
