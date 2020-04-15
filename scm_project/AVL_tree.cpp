@@ -75,4 +75,18 @@ avl *avl_tree::rl_rotat(avl *parent) {
    cout<<"Right-Left Rotation";
    return rr_rotat(parent);
 }
-
+avl *avl_tree::balance(avl *t) {
+   int bal_factor = difference(t);
+   if (bal_factor > 1) {
+      if (difference(t->l) > 0)
+         t = ll_rotat(t);
+      else
+         t = lr_rotat(t);
+   } else if (bal_factor < -1) {
+      if (difference(t->r) > 0)
+         t = rl_rotat(t);
+      else
+         t = rr_rotat(t);
+   }
+   return t;
+}
