@@ -133,5 +133,12 @@ void avl_tree::show(avl *p, int l) {
       preorder(t->l);
       preorder(t->r);
 }
+void avl_tree::postorder(avl *t) {
+   if (t == NULL)
+      return;
+      postorder(t ->l);
+      postorder(t ->r);
+      cout << t->d << " ";
+}
        
    
