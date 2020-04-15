@@ -45,3 +45,19 @@ int avl_tree::difference(avl *t) {
    int b_factor = l_height - r_height;
    return b_factor;
 }
+avl *avl_tree::rr_rotat(avl *parent) {
+   avl *t;
+   t = parent->r;
+   parent->r = t->l;
+   t->l = parent;
+   cout<<"Right-Right Rotation";
+   return t;
+}
+avl *avl_tree::ll_rotat(avl *parent) {
+   avl *t;
+   t = parent->l;
+   parent->l = t->r;
+   t->r = parent;
+   cout<<"Left-Left Rotation";
+   return t;
+}
