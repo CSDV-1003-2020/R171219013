@@ -61,3 +61,10 @@ avl *avl_tree::ll_rotat(avl *parent) {
    cout<<"Left-Left Rotation";
    return t;
 }
+avl *avl_tree::lr_rotat(avl *parent) {
+   avl *t;
+   t = parent->l;
+   parent->l = rr_rotat(t);
+   cout<<"Left-Right Rotation";
+   return ll_rotat(parent);
+}
