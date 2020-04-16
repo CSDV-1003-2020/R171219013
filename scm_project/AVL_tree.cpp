@@ -4,14 +4,20 @@
 #include<cstdio>
 #include<sstream>
 #include<algorithm>
+
 #define pow2(n) (1 << (n))
+
 using namespace std;
-struct avl {
+
+struct avl 
+{
    int d;
    struct avl *l;
    struct avl *r;
 }*r;
-class avl_tree {
+
+class avl_tree 
+{
    public:
       int height(avl *);
       int difference(avl *);
@@ -29,7 +35,9 @@ class avl_tree {
          r = NULL;
       }
 };
-int avl_tree::height(avl *t) {
+
+int avl_tree::height(avl *t) 
+{
    int h = 0;
    if (t != NULL) {
       int l_height = height(t->l);
@@ -39,13 +47,17 @@ int avl_tree::height(avl *t) {
    }
    return h;
 }
-int avl_tree::difference(avl *t) {
+
+int avl_tree::difference(avl *t) 
+{
    int l_height = height(t->l);
    int r_height = height(t->r);
    int b_factor = l_height - r_height;
    return b_factor;
 }
-avl *avl_tree::rr_rotat(avl *parent) {
+
+avl *avl_tree::rr_rotat(avl *parent) 
+{
    avl *t;
    t = parent->r;
    parent->r = t->l;
@@ -53,7 +65,9 @@ avl *avl_tree::rr_rotat(avl *parent) {
    cout<<"Right-Right Rotation";
    return t;
 }
-avl *avl_tree::ll_rotat(avl *parent) {
+
+avl *avl_tree::ll_rotat(avl *parent) 
+{
    avl *t;
    t = parent->l;
    parent->l = t->r;
@@ -61,21 +75,27 @@ avl *avl_tree::ll_rotat(avl *parent) {
    cout<<"Left-Left Rotation";
    return t;
 }
-avl *avl_tree::lr_rotat(avl *parent) {
+
+avl *avl_tree::lr_rotat(avl *parent) 
+{
    avl *t;
    t = parent->l;
    parent->l = rr_rotat(t);
    cout<<"Left-Right Rotation";
    return ll_rotat(parent);
 }
-avl *avl_tree::rl_rotat(avl *parent) {
+
+avl *avl_tree::rl_rotat(avl *parent) 
+{
    avl *t;
    t = parent->r;
    parent->r = ll_rotat(t);
    cout<<"Right-Left Rotation";
    return rr_rotat(parent);
 }
-avl *avl_tree::balance(avl *t) {
+
+avl *avl_tree::balance(avl *t) 
+{
    int bal_factor = difference(t);
    if (bal_factor > 1) {
       if (difference(t->l) > 0)
@@ -90,7 +110,9 @@ avl *avl_tree::balance(avl *t) {
    }
    return t;
 }
-avl *avl_tree::insert(avl *r, int v) {
+
+avl *avl_tree::insert(avl *r, int v) 
+{
    if (r == NULL) {
       r = new avl;
       r->d = v;
@@ -105,7 +127,9 @@ avl *avl_tree::insert(avl *r, int v) {
       r = balance(r);
    } return r;
 }
-void avl_tree::show(avl *p, int l) {
+
+void avl_tree::show(avl *p, int l) 
+{
    int i;
    if (p != NULL) {
       show(p->r, l+ 1);
@@ -119,28 +143,35 @@ void avl_tree::show(avl *p, int l) {
    }
 }
 
-  void avl_tree::inorder(avl *t) {
+void avl_tree::inorder(avl *t) 
+{
    if (t == NULL)
       return;
       inorder(t->l);
       cout << t->d << " ";
       inorder(t->r);
 }
-   void avl_tree::preorder(avl *t) {
+
+void avl_tree::preorder(avl *t) 
+{
    if (t == NULL)
       return;
       cout << t->d << " ";
       preorder(t->l);
       preorder(t->r);
 }
-void avl_tree::postorder(avl *t) {
+
+void avl_tree::postorder(avl *t) 
+{
    if (t == NULL)
       return;
       postorder(t ->l);
       postorder(t ->r);
       cout << t->d << " ";
 }
-int main() {
+
+int main() 
+{
    int c, i;
    avl_tree avl;
    while (1) {
@@ -188,9 +219,11 @@ int main() {
          default:
             cout << "Wrong Choice" << endl;
       }
+      
        }
    return 0;
 }
+
 //end of code
        
    
